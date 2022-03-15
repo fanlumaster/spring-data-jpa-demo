@@ -64,3 +64,11 @@ uniqueConstraints 用来批量命名唯一键
 其作用等同于多个：@Column(unique = true)
 其 `name` 属性不太了解。
 
+---
+
+@Repository用于标注数据访问组件，即DAO组件。
+
+@SpringBootTest注解是SpringBoot自1.4.0版本开始引入的一个用于测试的注解。
+
+@DataJpaTest用于测试 JPA 信息库。 与@RunWith(SpringRunner.class)结合使用。 注解会禁用完全自动配置，并且仅应用与 JPA 测试相关的配置。 默认情况下，带有@DataJpaTest注解的测试使用嵌入式内存数据库。
+
