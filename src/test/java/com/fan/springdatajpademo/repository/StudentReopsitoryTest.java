@@ -94,4 +94,11 @@ public class StudentReopsitoryTest {
 
         System.out.println("student = " + student);
     }
+
+    @Test
+    public void printgetStudentByEmailAddressNativeNamedParam() {
+        Student student = studentReopsitory.getStudentByEmailAddressNativeNamedParam("lxyfl6688@gmail.com");
+
+        System.out.println("student = " + student);
+    }
 }
