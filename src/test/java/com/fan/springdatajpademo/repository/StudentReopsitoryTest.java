@@ -52,4 +52,25 @@ public class StudentReopsitoryTest {
 
         System.out.println("studentList = " + studentList);
     }
+
+    @Test
+    public void printStudentByFirstName() {
+        List<Student> students = studentReopsitory.findByFirstName("Fany");
+
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void printStudentByFirstNameContaining() {
+        List<Student> students = studentReopsitory.findByFirstNameContaining("Fa");
+
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void printStudentBasedOnGuardianName() {
+        List<Student> students = studentReopsitory.findByGuardianName("Lu");
+
+        System.out.println("students = " + students);
+    }
 }
