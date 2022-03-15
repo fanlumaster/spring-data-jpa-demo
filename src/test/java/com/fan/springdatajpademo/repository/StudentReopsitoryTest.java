@@ -2,6 +2,7 @@ package com.fan.springdatajpademo.repository;
 
 import java.util.List;
 
+import com.fan.springdatajpademo.entity.Guardian;
 import com.fan.springdatajpademo.entity.Student;
 
 import org.junit.jupiter.api.Test;
@@ -19,8 +20,27 @@ public class StudentReopsitoryTest {
                 .emailId("lxyfl6688@gmail.com")
                 .firstName("fany")
                 .lastName("full")
-                .guardianName("Lu")
-                .guardianMobil("12345678")
+                // .guardianName("Lu")
+                // .guardianEmail("lu@email.com")
+                // .guardianMobil("12345678")
+                .build();
+
+        studentReopsitory.save(student);
+    }
+
+    @Test
+    public void saveStudentWithGuardian() {
+        Guardian guardian = Guardian.builder()
+                .email("lu@email.com")
+                .name("Lu")
+                .mobile("12345678")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("Fany")
+                .emailId("fany@gmail.com")
+                .lastName("Full")
+                .guardian(guardian)
                 .build();
 
         studentReopsitory.save(student);

@@ -1,6 +1,7 @@
 package com.fan.springdatajpademo.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +31,7 @@ public class Student {
 
     @Column(name = "email_address", nullable = false)
     private String emailId;
-    private String guardianName;
-    private String guardianEmail;
-    private String guardianMobil;
+
+    @Embedded
+    private Guardian guardian;
 }

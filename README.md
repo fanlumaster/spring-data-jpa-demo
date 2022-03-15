@@ -72,3 +72,10 @@ uniqueConstraints 用来批量命名唯一键
 
 @DataJpaTest用于测试 JPA 信息库。 与@RunWith(SpringRunner.class)结合使用。 注解会禁用完全自动配置，并且仅应用与 JPA 测试相关的配置。 默认情况下，带有@DataJpaTest注解的测试使用嵌入式内存数据库。
 
+@Embeddable：
+
+将一个实体类内置在另一个实体类中，但是不在数据库中生成这个类的表。
+
+@Builder 注解：
+
+通过@Builder注解，lombok可以方便的使用建造者模式。
