@@ -79,3 +79,7 @@ uniqueConstraints 用来批量命名唯一键
 @Builder 注解：
 
 通过@Builder注解，lombok可以方便的使用建造者模式。
+
+@Query("select s from Student s where s.emailId = ?1")
+
+用来写类似于 SQL 的语句。
