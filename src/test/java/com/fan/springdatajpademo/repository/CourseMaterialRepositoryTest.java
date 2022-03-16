@@ -1,5 +1,7 @@
 package com.fan.springdatajpademo.repository;
 
+import java.util.List;
+
 import com.fan.springdatajpademo.entity.Course;
 import com.fan.springdatajpademo.entity.CourseMaterial;
 
@@ -21,5 +23,12 @@ public class CourseMaterialRepositoryTest {
         CourseMaterial courseMaterial = CourseMaterial.builder().url("www.google.com").course(course).build();
 
         repository.save(courseMaterial);
+    }
+
+    @Test
+    public void printAllCourses() {
+        List<CourseMaterial> courseMaterials = repository.findAll();
+
+        System.out.println("courseMatetial = " + courseMaterials);
     }
 }
