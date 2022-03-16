@@ -133,3 +133,7 @@ c) mappedBy的含义，应该理解为，拥有方能够自动维护 跟被拥�
 - optional 表示关联关系是否必须，当该值为true时，one的一方可以为null；
 - mappedBy 指定映射关系由哪一方维护，一般使用在双向映射场景；
 - orphanRemoval 孤值删除，将会删除孤立数据，外键为null的数据将被删除；
+
+`import org.springframework.data.domain.Pageable;`
+
+注意，分页要用这个包。
