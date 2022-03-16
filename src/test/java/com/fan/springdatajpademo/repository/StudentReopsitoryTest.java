@@ -101,4 +101,9 @@ public class StudentReopsitoryTest {
 
         System.out.println("student = " + student);
     }
+
+    @Test
+    public void updateStudentNameByEmailIdTest() {
+        studentReopsitory.updateStudentNameByEmailId("fanyfly", "lxyfl6688@gmail.com");
+    }
 }

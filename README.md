@@ -83,3 +83,5 @@ uniqueConstraints 用来批量命名唯一键
 @Query("select s from Student s where s.emailId = ?1")
 
 用来写类似于 SQL 的语句。
+
+如果数据库操作是修改数据而非查询数据，则需要再额外使用 @Modifying 注解提示 JPA 该操作是修改操作。
