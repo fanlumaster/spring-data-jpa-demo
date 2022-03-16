@@ -85,3 +85,17 @@ uniqueConstraints 用来批量命名唯一键
 用来写类似于 SQL 的语句。
 
 如果数据库操作是修改数据而非查询数据，则需要再额外使用 @Modifying 注解提示 JPA 该操作是修改操作。
+
+@OneToOne
+@JoinColumn(name = "course_id", referencedColumnName = "courseId")
+
+一对一关系。
+
+@OneToOne(cascade = CascadeType.ALL)
+
+- CascadeType.PERSIST：级联新增（又称级联保存）：对A对象保存时也会对B对象进行保存。并且，只有A类新增时，会级联B对象新增。若B对象在数据库存在则抛异常。对应EntityManager的presist方法。
+- CascadeType.MERGE：级联合并（级联更新）：指A类新增或者变化，会级联B对象（新增或者变化）。对应EntityManager的merge方法。
+- CascadeType.REMOVE：级联删除：只有A类删除时，会级联删除B类,即在设置的那一端进行删除时，另一端才会级联删除。对应EntityManager的remove方法。
+- CascadeType.REFRESH：级联刷新：获取A对象时也重新获取最新的B对象。对EntityManager的refresh(object)方法。即会重新查询数据库里的最新数据（用的比较少）
+- CascadeType.DETACH：级联分离。
+- CascadeType.ALL：级联所有操作。
