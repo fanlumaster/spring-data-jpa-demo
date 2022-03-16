@@ -119,3 +119,17 @@ a) 只有OneToOne,OneToMany,ManyToMany上才有mappedBy属性，ManyToOne不存�
 b) mappedBy标签一定是定义在the owned side(被拥有方的)，他指向the owning side(拥有方)；
 
 c) mappedBy的含义，应该理解为，拥有方能够自动维护 跟被拥有方的关系； 
+
+- targetEntity 关联目标实体类，指定类型后该属性可省略；
+- cascade表示关联关系中的级联操作权限，有五种权限：
+    - CascadeType.PERSIST：级联新增（又称级联保存）；
+    - CascadeType.MERGE：级联合并，更新该实体时，与其有映射关系的实体也跟随更新；
+    - CascadeType.REMOVE：级联删除，删除该实体时，与其有映射关系的实体也跟随删除；
+    - CascadeType.REFRESH：级联刷新，该实体被操作前都会刷新，保证数据合法性；
+    - CascadeType.ALL：包含以上四种级联操作；
+- fetch数据加载策略，默认值为FetchType.EAGER：
+    - FetchType.LAZY 表示数据获取方式为懒加载；
+    - FetchType.EAGER 表示数据获取方式为急加载；
+- optional 表示关联关系是否必须，当该值为true时，one的一方可以为null；
+- mappedBy 指定映射关系由哪一方维护，一般使用在双向映射场景；
+- orphanRemoval 孤值删除，将会删除孤立数据，外键为null的数据将被删除；
