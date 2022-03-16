@@ -1,3 +1,26 @@
+建立工程项目时需要的导入的包：
+
+![](https://i.imgur.com/fvEjRf0.png)
+
+数据库关系：
+
+![](https://i.imgur.com/T3O1cif.png)
+
+我们只需要在 MySQL 中建立一个名为 `schooldb` 的数据库即可。
+
+配置信息：
+
+```
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3306/schooldb
+spring.datasource.username=root
+spring.datasource.password=lf123456
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.show-sql=true
+```
+
+---
+
 关于 `spring.jpa.hibernate.ddl-auto`：
 
 ![](https://i.imgur.com/TkmJ0UA.png)
