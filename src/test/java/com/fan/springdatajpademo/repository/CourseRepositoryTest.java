@@ -3,6 +3,7 @@ package com.fan.springdatajpademo.repository;
 import java.util.List;
 
 import com.fan.springdatajpademo.entity.Course;
+import com.fan.springdatajpademo.entity.Student;
 import com.fan.springdatajpademo.entity.Teacher;
 
 import org.junit.jupiter.api.Test;
@@ -26,16 +27,9 @@ public class CourseRepositoryTest {
 
     @Test
     public void saveCourseWithTeacher() {
-        Teacher teacher = Teacher.builder()
-                .firstName("Lv")
-                .lastName("ZeHua")
-                .build();
+        Teacher teacher = Teacher.builder().firstName("Lv").lastName("ZeHua").build();
 
-        Course course = Course.builder()
-                .title("Python")
-                .credit(6)
-                .teacher(teacher)
-                .build();
+        Course course = Course.builder().title("Python").credit(6).teacher(teacher).build();
 
         courseRepository.save(course);
     }
@@ -62,7 +56,8 @@ public class CourseRepositoryTest {
     public void findAllSorting() {
         Pageable sortByTitle = PageRequest.of(0, 2, Sort.by("title"));
         Pageable sortByCreditDesc = PageRequest.of(0, 2, Sort.by("credit").descending());
-        Pageable sortByTitleAndCreditDesc = PageRequest.of(0, 2, Sort.by("title").descending().and(Sort.by("credit")));
+        Pageable sortByTitleAndCreditDesc =
+                PageRequest.of(0, 2, Sort.by("title").descending().and(Sort.by("credit")));
 
         List<Course> courses = courseRepository.findAll(sortByTitle).getContent();
 
@@ -73,8 +68,23 @@ public class CourseRepositoryTest {
     public void printfindByTitleContaining() {
         Pageable firstPageTenRecords = PageRequest.of(0, 10);
 
-        List<Course> courses = courseRepository.findByTitleContaining("D", firstPageTenRecords).getContent();
+        List<Course> courses =
+                courseRepository.findByTitleContaining("D", firstPageTenRecords).getContent();
 
         System.out.println("courses = " + courses);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+        Teacher teacher = Teacher.builder().firstName("Sun").lastName("XiaoHong").build();
+
+        Student student = Student.builder().firstName("Lu").lastName("XiaoYa")
+                .emailId("test@gmail.com").build();
+
+        Course course = Course.builder().title("AI").credit(12).teacher(teacher).build();
+
+        course.addStudents(student);
+
+        courseRepository.save(course);
     }
 }
